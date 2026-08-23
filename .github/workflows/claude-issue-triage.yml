@@ -38,4 +38,7 @@ jobs:
                en qué archivos del repo (index.html, style.css, game.js) probablemente
                haya que intervenir, y un posible enfoque de solución de alto nivel.
                No implementes la solución, solo diagnostica.
+               El comentario debe estar escrito en formato Markdown compatible con GitHub
+               (usa encabezados, listas, y bloques de código con \`\`\` para nombres de
+               archivo o fragmentos de código cuando corresponda).
           claude_args: '--allowed-tools "Bash(gh issue *),Bash(gh label *)"'
