@@ -21,6 +21,10 @@
   --restart-hover: #9bbdff;
   --switch-bg: #2a2a3a;
   --switch-knob: #e0e0e0;
+  --menu-btn-bg: #22223a;
+  --menu-btn-border: #3a3a5a;
+  --menu-btn-hover: #2e2e4a;
+  --menu-select-bg: #1a1a25;
 }
 
 body.light-theme {
@@ -40,6 +44,10 @@ body.light-theme {
   --restart-hover: #5c7cfa;
   --switch-bg: #c9c9dd;
   --switch-knob: #ffffff;
+  --menu-btn-bg: #e4e4ef;
+  --menu-btn-border: #c9c9dd;
+  --menu-btn-hover: #d6d6e6;
+  --menu-select-bg: #ffffff;
 }
 
 body {
@@ -242,4 +250,86 @@ kbd {
 
 #restart-btn:hover {
   background: var(--restart-hover);
+}
+
+/* By default (no state class yet) show the game-over restart button
+   and hide the pause menu; state classes below flip this per overlay mode. */
+.overlay .pause-menu {
+  display: none;
+}
+
+.overlay.paused #restart-btn {
+  display: none;
+}
+
+.overlay.paused .pause-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  min-width: 220px;
+}
+
+.pause-menu select#start-level {
+  background: var(--menu-select-bg);
+  color: var(--text-color);
+  border: 1px solid var(--menu-btn-border);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.pause-menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.pause-menu-buttons button {
+  background: var(--menu-btn-bg);
+  color: var(--text-color);
+  border: 1px solid var(--menu-btn-border);
+  border-radius: 6px;
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background 0.15s;
+}
+
+.pause-menu-buttons button:hover {
+  background: var(--menu-btn-hover);
+}
+
+#resume-btn {
+  background: var(--accent);
+  color: var(--restart-text);
+  border-color: transparent;
+}
+
+#resume-btn:hover {
+  background: var(--restart-hover);
+}
+
+.pause-controls-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pause-controls-list.hidden {
+  display: none;
+}
+
+.pause-controls-list li {
+  font-size: 12px;
+  color: var(--controls-text);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
 }
